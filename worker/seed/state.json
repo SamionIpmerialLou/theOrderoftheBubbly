@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "settings": {
+    "weeklyQuota": 75,
+    "rexPoolBp": 5590
+  },
+  "members": [
+    {
+      "id": "clara",
+      "name": "Clara",
+      "role": "Equerry, Head of Intel",
+      "weekly": 0,
+      "bp": 3015,
+      "tabs": 0,
+      "status": "Excused",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "Excused (Deceased)",
+      "dossier": "pos-equerry"
+    },
+    {
+      "id": "liv",
+      "name": "Liv",
+      "role": "Princess Bubbly, Treasurer",
+      "weekly": 60,
+      "bp": 12115,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-treasurer"
+    },
+    {
+      "id": "tina",
+      "name": "Tina",
+      "role": "First Knight of the Bubbly",
+      "weekly": 0,
+      "bp": 3230,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-first-knight"
+    },
+    {
+      "id": "elsa",
+      "name": "Elsa",
+      "role": "Allymango, Knight",
+      "weekly": 95,
+      "bp": 7735,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-allymango"
+    },
+    {
+      "id": "rosy",
+      "name": "Rosy",
+      "role": "Black Tip Reef Shark, Knight",
+      "weekly": 30,
+      "bp": 7035,
+      "tabs": 10,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-shark"
+    },
+    {
+      "id": "finn",
+      "name": "Finn",
+      "role": "Anime Boy, Knight",
+      "weekly": 0,
+      "bp": 1820,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-knight"
+    },
+    {
+      "id": "michu",
+      "name": "Michu",
+      "role": "Bubbly Recruit",
+      "weekly": 10,
+      "bp": 3430,
+      "tabs": 8,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-recruit"
+    },
+    {
+      "id": "eleni",
+      "name": "Eleni",
+      "role": "Bubbly Recruit",
+      "weekly": 160,
+      "bp": 3200,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-recruit"
+    },
+    {
+      "id": "abby",
+      "name": "Abby",
+      "role": "Bubbly Recruit",
+      "weekly": 165,
+      "bp": 3050,
+      "tabs": 16,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-recruit"
+    },
+    {
+      "id": "josiah",
+      "name": "Josiah",
+      "role": "Bubbly Recruit",
+      "weekly": 0,
+      "bp": 1360,
+      "tabs": 0,
+      "status": "Active",
+      "category": "active",
+      "banishCount": 0,
+      "sanction": "",
+      "dossier": "pos-recruit"
+    },
+    {
+      "id": "simon",
+      "name": "Simon",
+      "role": "Banished Knight",
+      "weekly": 0,
+      "bp": 2000,
+      "tabs": 0,
+      "status": "Bubbly Traitor",
+      "category": "banished",
+      "banishCount": 0,
+      "sanction": "Bubbly Traitor",
+      "dossier": "pos-traitor"
+    },
+    {
+      "id": "cal",
+      "name": "Cal",
+      "role": "Banished Knight",
+      "weekly": 0,
+      "bp": 1720,
+      "tabs": 0,
+      "status": "Banished (1 Strike)",
+      "category": "banished",
+      "banishCount": 1,
+      "sanction": "Banished (1 Strike)",
+      "dossier": "rank-imprisoned"
+    },
+    {
+      "id": "boaz",
+      "name": "Boaz",
+      "role": "Banished Knight",
+      "weekly": 0,
+      "bp": 1760,
+      "tabs": 0,
+      "status": "Bubbly Outlaw",
+      "category": "banished",
+      "banishCount": 0,
+      "sanction": "Bubbly Outlaw",
+      "dossier": "pos-outlaw"
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "role": "Banished Knight",
+      "weekly": 0,
+      "bp": 10,
+      "tabs": 0,
+      "status": "Banished (2 Strikes)",
+      "category": "banished",
+      "banishCount": 2,
+      "sanction": "Banished (2 Strikes)",
+      "dossier": "rank-imprisoned"
+    }
+  ],
+  "decrees": [
+    {
+      "id": "decree-207",
+      "number": 207,
+      "category": "Sovereign Decree",
+      "isPinned": true,
+      "title": "Mandatory 75 BP Weekly Quota & Merit Cycle Directive",
+      "date": "October 5, 2026",
+      "contentHtml": "<p>By supreme command of Lord Bubly: The Weekly BP Point Merit Cycle is standard operating duty for the Order. Effective immediately, every active knight and recruit is legally bound to a mandatory 75 BP weekly quota. Those meeting quota earn realm distinction; those failing quota (&lt; 75 BP) are remanded to Captain Rex and High Treasurer Liv for disciplinary audit. All Hail Lord Bubly.</p>",
+      "author": "Lord Bubly, Lord of the Hierarchy"
+    },
+    {
+      "id": "decree-206",
+      "number": 206,
+      "category": "Sovereign Decree",
+      "isPinned": true,
+      "title": "Sovereign Proclamation on Absolute Submission & Beverage Orthodoxy",
+      "date": "October 4, 2026",
+      "contentHtml": "<p>By supreme authority of Lord Bubly: Let all mortals who cast retinas upon the Masterdoc understand that covenant terms are binding upon reading. Whosoever questions a penalty, utters &#39;OOTB&#39; aloud, or is caught with flat counterfeit soda shall suffer instant -500 BP revocation and debt servitude under High Treasurer Liv. What Lord Bubly says goes.</p>",
+      "author": "Lord Bubly, Lord of the Hierarchy"
+    },
+    {
+      "id": "decree-205",
+      "number": 205,
+      "category": "Protocol",
+      "isPinned": true,
+      "title": "Enforcement of the Butterfly Cycle & Bunny PT Quotas",
+      "date": "October 3, 2026",
+      "contentHtml": "<p>By supreme command of Lord Bubly: All active knights are hereby reminded that physical atrophy will not be tolerated in the Order. Bunny PT quotas remain strictly enforced at +4 BP per completed exercise unit. Knights attempting to skip Stage 2 of the daily discipline cycle risk immediate assignment to the Court Jester&#39;s laundry detail.</p>",
+      "author": "Lord Bubly, Lord of the Hierarchy"
+    },
+    {
+      "id": "decree-204",
+      "number": 204,
+      "category": "Law",
+      "isPinned": true,
+      "title": "High Treason Ban on Uttering 'OOTB' in Mortal Speech",
+      "date": "September 28, 2026",
+      "contentHtml": "<p>Be it known throughout all quarters: The phrase &#39;The Order of the Bubly&#39; is sacrosanct. The acronym &#39;OOTB&#39; is permissible strictly in digital notation and official Masterdoc codices. Any knight, recruit, or mortal caught pronouncing the syllable &#39;OOTB&#39; aloud in verbal speech shall be summarily fined 500 BP, stripped of their current paygrade, and sentenced to three days of scrubbing the Tab Vault floor.</p>",
+      "author": "Lord Bubly, Head of the Order"
+    },
+    {
+      "id": "decree-201",
+      "number": 201,
+      "category": "Alert",
+      "isPinned": false,
+      "title": "Treasurer Liv's Expanded BP Theft Jurisdiction",
+      "date": "September 15, 2026",
+      "contentHtml": "<p>The High Council has ratified an expansion of the High Treasurer&#39;s discretionary auditing powers. In the event of blatant insubordination, unregistered beverage logistics, or refusal to crack cans upon command, High Treasurer Liv is legally authorized to execute emergency BP levies up to 500 BP per incident without prior council consultation.</p>",
+      "author": "Lord Bubly & The High Council"
+    },
+    {
+      "id": "decree-189",
+      "number": 189,
+      "category": "Edict",
+      "isPinned": false,
+      "title": "Ratification of the Great Bubbly Peace Summit of 2025",
+      "date": "August 20, 2025",
+      "contentHtml": "<p>Let history record that on this date, the factions of Lime, Grapefruit, and Blackberry met in solemn assembly. Boundary disputes regarding regional beverage supply lines have been resolved under the sovereign mediation of Lord Bubly. All outposts are commanded to maintain open distribution channels for all approved carbonated elixirs.</p>",
+      "author": "Lord Bubly, Sovereign Mediator"
+    },
+    {
+      "id": "decree-142",
+      "number": 142,
+      "category": "Protocol",
+      "isPinned": false,
+      "title": "Mandatory No Missing Work (NMW) Directive",
+      "date": "June 12, 2025",
+      "contentHtml": "<p>Academic and operational diligence is hereby codified as knightly valor. Every knight who completes a full calendar week with zero missing assignments or operational lapses shall receive +25 BP upon presenting verified proof. Conversely, unexcused lapses result in an immediate descent down the Butterfly Cycle.</p>",
+      "author": "Lord Bubly, Supreme Arbiter"
+    },
+    {
+      "id": "decree-1",
+      "number": 1,
+      "category": "Sovereign Decree",
+      "isPinned": false,
+      "title": "Genesis Sovereign Decree: Establishment of The Order of the Bubly",
+      "date": "May 6, 2025",
+      "contentHtml": "<p>We, Lord Bubly, hereby establish this sovereign Order to bind together those who revere carbonated honor, unyielding discipline, and the pursuit of knightly nobility. From this day forward, let the Order stand firm, let the bubbles never go flat, and let every soul know their rightful paygrade.</p>",
+      "author": "Lord Bubly, Founder & Sovereign"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Local secrets and environment
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
+
+# Dependencies and local Wrangler state
+node_modules/
+worker/node_modules/
+.wrangler/
+worker/.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editor junk
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+*.Zone.Identifier
+
+# Local source documents (not published)
+/OOTB Master Doc/

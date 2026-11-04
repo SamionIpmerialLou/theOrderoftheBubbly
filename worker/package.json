@@ -1,0 +1,23 @@
+{
+  "name": "order-of-bubly-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/*.test.js",
+    "db:migrate:local": "wrangler d1 execute order_of_bubly --local --file=migrations/0001_site_state.sql",
+    "db:migrate": "wrangler d1 execute order_of_bubly --remote --file=migrations/0001_site_state.sql",
+    "db:seed:local": "node scripts/seed.mjs --local",
+    "db:seed": "node scripts/seed.mjs --remote",
+    "build:seed": "node scripts/build-seed.mjs",
+    "hash-password": "node scripts/hash-password.mjs"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.13.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

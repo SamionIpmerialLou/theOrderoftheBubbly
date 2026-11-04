@@ -1,0 +1,17 @@
+name = "order-of-bubly-api"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "order_of_bubly"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[vars]
+ALLOWED_ORIGINS = "https://lordbubly.com,https://www.lordbubly.com,https://samionipmeriallou.github.io,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8787,http://127.0.0.1:8787"
+
+# [[routes]]
+# pattern = "api.lordbubly.com"
+# custom_domain = true
