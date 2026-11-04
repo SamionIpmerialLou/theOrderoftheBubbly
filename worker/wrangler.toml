@@ -10,7 +10,7 @@ database_name = "order_of_bubly"
 database_id = "cefb7dfa-aec2-4f80-b864-001e4a8aa5d2"
 
 [vars]
-ALLOWED_ORIGINS = "https://lordbubly.com,https://www.lordbubly.com,https://samionipmeriallou.github.io,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8787,http://127.0.0.1:8787"
+ALLOWED_ORIGINS = "https://lordbubly.com,https://www.lordbubly.com,https://samionipmeriallou.github.io,https://orderofthebubly.lordbubly.com,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8787,http://127.0.0.1:8787"
 
 [[routes]]
 pattern = "api.lordbubly.com"
