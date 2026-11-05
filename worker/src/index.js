@@ -4,7 +4,7 @@ import {
   verifyPassword,
   verifySessionToken
 } from './auth.js';
-import { normalizeState, ValidationError } from './validate.js';
+import { normalizeApplication, normalizeState, ValidationError } from './validate.js';
 import { sanitizeStateHtml } from './sanitize.js';
 
 const JSON_HEADERS = { 'Content-Type': 'application/json; charset=utf-8' };
@@ -12,6 +12,9 @@ const MAX_BODY_BYTES = 262144;
 const LOGIN_WINDOW_SECONDS = 900;
 const MAX_LOGIN_ATTEMPTS = 8;
 const SESSION_TTL_SECONDS = 28800;
+const APPLICATION_WINDOW_SECONDS = 3600;
+const MAX_APPLICATIONS_PER_WINDOW = 5;
+const MAX_ADMIN_APPLICATIONS = 1000;
 
 function jsonResponse(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
@@ -200,6 +203,79 @@ async function handlePutState(request, env, cors) {
   }, 200, cors);
 }
 
+function generateApplicationId() {
+  const digits = new Uint32Array(1);
+  crypto.getRandomValues(digits);
+  const suffix = String(100000 + (digits[0] % 900000));
+  return `REC-${new Date().getUTCFullYear()}-${suffix}`;
+}
+
+async function handleSubmitApplication(request, env, cors) {
+  const body = await readJsonBody(request);
+
+  const ip = getClientIp(request);
+  const nowSeconds = Math.floor(Date.now() / 1000);
+  await env.DB.prepare(
+    'DELETE FROM application_attempts WHERE attempted_at < ?'
+  ).bind(nowSeconds - APPLICATION_WINDOW_SECONDS).run();
+
+  const attemptRow = await env.DB.prepare(
+    'SELECT COUNT(*) AS count FROM application_attempts WHERE ip = ? AND attempted_at >= ?'
+  ).bind(ip, nowSeconds - APPLICATION_WINDOW_SECONDS).first();
+  if (Number(attemptRow?.count || 0) >= MAX_APPLICATIONS_PER_WINDOW) {
+    return jsonResponse(
+      { error: 'Too many applications from this connection. Try again later.' },
+      429,
+      { ...cors, 'Retry-After': String(APPLICATION_WINDOW_SECONDS) }
+    );
+  }
+
+  const application = normalizeApplication(body);
+  const createdAt = new Date().toISOString();
+
+  let id = null;
+  for (let attempt = 0; attempt < 5 && !id; attempt += 1) {
+    const candidate = generateApplicationId();
+    try {
+      await env.DB.prepare(
+        'INSERT INTO applications (id, name, email, flavor, accepted_terms, submitted_to_lord, created_at) VALUES (?, ?, ?, ?, 1, 1, ?)'
+      ).bind(candidate, application.name, application.email, application.flavor, createdAt).run();
+      id = candidate;
+    } catch (error) {
+      if (attempt === 4) throw error;
+    }
+  }
+
+  await env.DB.prepare(
+    'INSERT INTO application_attempts (ip, attempted_at) VALUES (?, ?)'
+  ).bind(ip, nowSeconds).run();
+
+  return jsonResponse({ application: { id, createdAt } }, 201, cors);
+}
+
+async function handleListApplications(request, env, cors) {
+  const session = await requireAuth(request, env);
+  if (!session) {
+    return jsonResponse({ error: 'Unauthorized.' }, 401, cors);
+  }
+
+  const { results } = await env.DB.prepare(
+    'SELECT id, name, email, flavor, accepted_terms, submitted_to_lord, created_at FROM applications ORDER BY created_at DESC LIMIT ?'
+  ).bind(MAX_ADMIN_APPLICATIONS).all();
+
+  const applications = (results || []).map((row) => ({
+    id: row.id,
+    name: row.name,
+    email: row.email,
+    flavor: row.flavor,
+    acceptedTerms: row.accepted_terms === 1,
+    submittedToLord: row.submitted_to_lord === 1,
+    createdAt: row.created_at
+  }));
+
+  return jsonResponse({ applications }, 200, { ...cors, 'Cache-Control': 'no-store' });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -224,6 +300,14 @@ export default {
 
       if (url.pathname === '/api/auth/session' && request.method === 'GET') {
         return await handleSession(request, env, cors);
+      }
+
+      if (url.pathname === '/api/applications' && request.method === 'POST') {
+        return await handleSubmitApplication(request, env, cors);
+      }
+
+      if (url.pathname === '/api/admin/applications' && request.method === 'GET') {
+        return await handleListApplications(request, env, cors);
       }
 
       if (url.pathname === '/api/admin/state' && request.method === 'PUT') {

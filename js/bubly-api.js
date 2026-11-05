@@ -94,6 +94,18 @@
     });
   }
 
+  async function submitApplication(application) {
+    return request('/api/applications', {
+      method: 'POST',
+      auth: false,
+      body: application
+    });
+  }
+
+  async function getApplications() {
+    return request('/api/admin/applications');
+  }
+
   window.BublyAPI = {
     base,
     getToken,
@@ -103,6 +115,8 @@
     login,
     getSession,
     getState,
-    saveState
+    saveState,
+    submitApplication,
+    getApplications
   };
 })();

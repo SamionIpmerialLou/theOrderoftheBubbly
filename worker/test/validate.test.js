@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeState, ValidationError } from '../src/validate.js';
+import { normalizeApplication, normalizeState, ValidationError } from '../src/validate.js';
 
 function sampleState() {
   return {
@@ -56,4 +56,42 @@ test('normalizeState rejects non-array decrees', () => {
   const input = sampleState();
   input.decrees = null;
   assert.throws(() => normalizeState(input), ValidationError);
+});
+
+function sampleApplication(overrides = {}) {
+  return {
+    name: '  Cedric the Thirsty ',
+    email: 'cedric@example.com',
+    flavor: 'Lime',
+    acceptedTerms: true,
+    submittedToLord: true,
+    ...overrides
+  };
+}
+
+test('normalizeApplication trims fields and keeps a valid application', () => {
+  const app = normalizeApplication(sampleApplication());
+  assert.equal(app.name, 'Cedric the Thirsty');
+  assert.equal(app.email, 'cedric@example.com');
+  assert.equal(app.flavor, 'Lime');
+  assert.equal(app.acceptedTerms, true);
+  assert.equal(app.submittedToLord, true);
+});
+
+test('normalizeApplication treats a blank email as optional', () => {
+  assert.equal(normalizeApplication(sampleApplication({ email: '' })).email, null);
+  assert.equal(normalizeApplication(sampleApplication({ email: undefined })).email, null);
+});
+
+test('normalizeApplication rejects missing name, bad email, unknown flavor', () => {
+  assert.throws(() => normalizeApplication(sampleApplication({ name: '   ' })), ValidationError);
+  assert.throws(() => normalizeApplication(sampleApplication({ email: 'not-an-email' })), ValidationError);
+  assert.throws(() => normalizeApplication(sampleApplication({ flavor: 'Flat Water' })), ValidationError);
+});
+
+test('normalizeApplication requires both checkboxes to be exactly true', () => {
+  assert.throws(() => normalizeApplication(sampleApplication({ acceptedTerms: false })), ValidationError);
+  assert.throws(() => normalizeApplication(sampleApplication({ submittedToLord: false })), ValidationError);
+  assert.throws(() => normalizeApplication(sampleApplication({ acceptedTerms: 'true' })), ValidationError);
+  assert.throws(() => normalizeApplication(null), ValidationError);
 });

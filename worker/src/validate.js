@@ -122,3 +122,51 @@ export function normalizeState(input) {
     decrees: decreesSource.map((decree, index) => normalizeDecree(decree, index, decreeIds))
   };
 }
+
+export const APPLICATION_FLAVORS = [
+  'Lime',
+  'Grapefruit',
+  'Blackberry',
+  'Cherry',
+  'Mango',
+  'Strawberry',
+  'Raspberry',
+  'Peach',
+  'Passionfruit'
+];
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export function normalizeApplication(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    throw new ValidationError('Application must be an object.');
+  }
+
+  const name = asString(input.name, 80);
+  if (!name) throw new ValidationError('A name or alias is required.');
+
+  const email = asString(input.email, 120);
+  if (email && !EMAIL_PATTERN.test(email)) {
+    throw new ValidationError('Contact email is not a valid address.');
+  }
+
+  const flavor = asString(input.flavor, 40);
+  if (!APPLICATION_FLAVORS.includes(flavor)) {
+    throw new ValidationError('Choose a valid signature essence.');
+  }
+
+  if (input.acceptedTerms !== true) {
+    throw new ValidationError('You must accept the terms and conditions.');
+  }
+  if (input.submittedToLord !== true) {
+    throw new ValidationError('You must submit to Lord Bubly.');
+  }
+
+  return {
+    name,
+    email: email || null,
+    flavor,
+    acceptedTerms: true,
+    submittedToLord: true
+  };
+}

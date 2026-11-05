@@ -1515,25 +1515,25 @@
                 <div class="portal-header">
                   <span class="portal-kicker">ARTICLE XIV // BUBLY RECRUIT TRIAL</span>
                   <h2>Bubbly Recruit Admissions Portal</h2>
-                  <p>Mortals seeking entry into The Order of the Bubly must pass the High Council examination, demonstrate theological reverence for Lord Bubly, record their direct communications channel, and take the binding recruit oath.</p>
+                  <p>Those seeking entry into The Order of the Bubly must record their direct communications channel and take the binding recruit oath.</p>
                 </div>
 
                 <form id="recruit-form" class="order-form" onsubmit="event.preventDefault(); processRecruitApplication();">
-                  <!-- Card 1: 01. Mortal Identity & Official Comms -->
+                  <!-- Card 1: 01. Identity & Official Comms -->
                   <div class="app-card">
                     <div class="app-card-title">
                       <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path></svg>
-                      01. Mortal Identity &amp; Contact Comms
+                      01. Identity &amp; Contact Comms
                     </div>
                     <div class="form-grid">
                       <div class="input-group">
-                        <label for="recruit-name">Mortal Name or Alias *</label>
+                        <label for="recruit-name">Name or Alias *</label>
                         <input type="text" id="recruit-name" placeholder="e.g. Recruit Cedric the Thirsty" required>
                       </div>
 
                       <div class="input-group">
                         <label for="recruit-email">Imperial Contact Email Address (Optional)</label>
-                        <input type="email" id="recruit-email" placeholder="e.g. cedric@mortalmail.com">
+                        <input type="email" id="recruit-email" placeholder="e.g. cedric@example.com">
                         <span style="font-size:0.72rem;color:var(--text-muted);display:block;margin-top:3px;">Optional. Provided only if you wish to be contacted by the High Council.</span>
                       </div>
 
@@ -1551,79 +1551,27 @@
                           <option value="Passionfruit">Passionfruit (Zealous Spirit)</option>
                         </select>
                       </div>
+                    </div>
 
-                      <div class="input-group">
-                        <label for="recruit-status">Declared Mortal Status *</label>
-                        <select id="recruit-status" required>
-                          <option value="Disciplined Student">Disciplined Student in Good Standing</option>
-                          <option value="Flat-Water Drinker">Flat-Water Drinker Seeking Redemption</option>
-                          <option value="Soda Rebel">Soda Apostate Fleeing Badlands</option>
-                          <option value="Aspirant Mortal">Mortal Scum Seeking Noble Purpose</option>
-                        </select>
-                      </div>
+                    <div class="checkbox-group" style="margin-top:1.15rem;margin-bottom:0.65rem;">
+                      <label>
+                        <input type="checkbox" id="recruit-accept-terms" required>
+                        <span>Do you accept the terms and conditions? *</span>
+                      </label>
+                    </div>
+                    <div class="checkbox-group">
+                      <label>
+                        <input type="checkbox" id="recruit-submit-lord" required>
+                        <span>Do you submit to Lord Bubly? *</span>
+                      </label>
                     </div>
                   </div>
 
-                  <!-- Card 2: 02. Sovereign Fealty & Philosophical Aptitude (Essay Evaluation) -->
-                  <div class="app-card">
-                    <div class="app-card-title app-card-title-red">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                      02. Sovereign Fealty &amp; Philosophical Aptitude (Essay Prompts)
-                    </div>
-
-                    <div class="input-group" style="margin-bottom: 1.15rem;">
-                      <label for="recruit-devotion">Essay Question 1: In your own words, what does it mean to serve Lord Bubly, and why do you seek fealty in the Sovereign Hierarchy? *</label>
-                      <textarea id="recruit-devotion" class="app-textarea" placeholder="Detail your dedication to Lord Bubly, your acceptance of the hierarchy, and why carbonated honor matters to you..." rows="3" required></textarea>
-                    </div>
-
-                    <div class="input-group">
-                      <label for="recruit-trial">Essay Question 2: Describe a trial or challenge where your dedication to carbonation, academic homework ($nmw), or chivalric discipline was tested, and how you persevered. *</label>
-                      <textarea id="recruit-trial" class="app-textarea" placeholder="Describe a moment you overcame flat water temptation, finished tough assignments on time, or stood firm in seltzer discipline..." rows="3" required></textarea>
-                    </div>
-                  </div>
-
-                  <!-- Card 3: 03. Tactical Assets & Strategic Quota Contributions -->
-                  <div class="app-card">
-                    <div class="app-card-title">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><rect x="7" y="3" width="10" height="18" rx="4.5"></rect><circle cx="12" cy="8.5" r="2.5"></circle></svg>
-                      03. Tactical Assets &amp; Strategic Quota Contributions
-                    </div>
-                    <div class="form-grid">
-                      <div class="input-group">
-                        <label for="recruit-skill">Primary Chivalric Skill / Asset *</label>
-                        <select id="recruit-skill" required>
-                          <option value="Pop Tab Mining">Pop Tab Mining &amp; Extraction ($ct Treasury Builder)</option>
-                          <option value="Academic Discipline">Zero Missing Schoolwork &amp; Academic Duty ($nmw Specialist)</option>
-                          <option value="Quarters Sanitization">Military Quarters Sanitization &amp; Room Cleaning ($cleanroom)</option>
-                          <option value="Acoustic Engineering">Can Crack Audio Engineering ($pr Verification)</option>
-                          <option value="Artillery Throwing">Tactical Shake &amp; Throw Artillery (Field Ordinance ED-03)</option>
-                          <option value="Physical Fitness">Physical Training &amp; Endurance ($PT Regiment)</option>
-                          <option value="Chlorophyll Contact">Touching Grass &amp; Reality Reconnect ($grass)</option>
-                        </select>
-                      </div>
-
-                      <div class="input-group">
-                        <label for="recruit-capacity">Daily Cold Bubly Consumption Capacity *</label>
-                        <select id="recruit-capacity" required>
-                          <option value="1 Can">1 Can Daily (Standard Mortal Survival)</option>
-                          <option value="2-3 Cans">2–3 Cans Daily (Knight Standard)</option>
-                          <option value="4-6 Cans">4–6 Cans Daily (Veteran Combatant)</option>
-                          <option value="7+ Cans">7+ Cans Daily (Ascended Seltzer Elemental)</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="input-group" style="margin-top: 1.15rem;">
-                      <label for="recruit-strategy">Essay Question 3: How do you plan to consistently maintain the mandatory 75 BP weekly quota and harvest pop tabs ($ct) for the Imperial Vault? *</label>
-                      <textarea id="recruit-strategy" class="app-textarea" placeholder="Outline your tactical routine for daily check-ins ($db), cold can consumption, contributing tabs to Abby's Vault, and keeping quarters clean..." rows="3" required></textarea>
-                    </div>
-                  </div>
-
-                  <!-- Card 4: 04. Binding Masterdoc Covenant Ratification -->
+                  <!-- Card 2: 02. Binding Masterdoc Covenant Ratification -->
                   <div class="app-card">
                     <div class="app-card-title app-card-title-red">
                       <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                      04. Binding Masterdoc Covenant Ratification
+                      02. Binding Masterdoc Covenant Ratification
                     </div>
 
                     <div class="checkbox-group" style="margin-bottom:0.65rem;">
@@ -1652,39 +1600,13 @@
                     </div>
                   </div>
 
+                  <div id="recruit-form-status" role="alert" style="display:none;color:#f87171;font-size:0.82rem;margin-bottom:0.75rem;"></div>
+
                   <button type="submit" class="btn-submit-order" style="width:100%;">
                     <svg class="b-icon b-can" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="4"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><ellipse cx="12" cy="12" rx="2.5" ry="1.5"></ellipse></svg>
-                    Submit Application &amp; Record in Imperial Archives
+                    Submit Application
                   </button>
                 </form>
-
-                <!-- Application Registry Drawer (Live Recorded Submissions Archive) -->
-                <div class="app-registry-drawer" id="app-registry-box">
-                  <div class="app-registry-header">
-                    <div class="app-registry-title">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                      IMPERIAL APPLICATION REGISTRY (STORED ON RECORD)
-                    </div>
-                    <span style="font-size:0.75rem;color:var(--text-muted);" id="registry-count">1 Active Record</span>
-                  </div>
-                  <div style="overflow-x:auto;">
-                    <table class="app-registry-table">
-                      <thead>
-                        <tr>
-                          <th>Application ID</th>
-                          <th>Applicant Name</th>
-                          <th>Comms Status</th>
-                          <th>Sworn Essence</th>
-                          <th>Aptitude Match</th>
-                          <th>Council Status</th>
-                        </tr>
-                      </thead>
-                      <tbody id="app-registry-body">
-                        <!-- Populated from localStorage via JS -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
               </div>
 
               <!-- Form 2: Knight Station Command Deck (For Existing Knights) -->
@@ -2021,7 +1943,7 @@
               <div class="cert-crest">
                 <img src="assets/orderseal.png" alt="Official Seal" class="cert-seal-img">
               </div>
-              <div class="cert-ref-pill" id="cert-ref-badge">IMPERIAL REGISTRY // #REC-2026-001</div>
+              <div class="cert-ref-pill" id="cert-ref-badge">RECRUIT APPLICATION // #REC-2026-001</div>
               <h3 class="cert-title" id="cert-doc-title">PATENT OF REAFFIRMATION</h3>
               <p class="cert-body" id="cert-body-intro">
                 Be it recorded throughout The Order of the Bubly that by solemn oath and severing of the tab:
@@ -2038,7 +1960,7 @@
                 </div>
                 <div class="cert-attr-item" id="cert-email-wrap" style="display:none;">
                   <span class="attr-label">Comms on Record:</span>
-                  <span class="attr-val" id="cert-email">mortal@orderofbubly.org</span>
+                  <span class="attr-val" id="cert-email">recruit@orderofbubly.org</span>
                 </div>
                 <div class="cert-attr-item">
                   <span class="attr-label">Sworn Essence:</span>
@@ -2131,6 +2053,7 @@
         <div class="admin-section-tabs">
           <button type="button" class="admin-section-tab active" data-admin-section="roster" onclick="setAdminSection('roster')">Roster</button>
           <button type="button" class="admin-section-tab" data-admin-section="banished" onclick="setAdminSection('banished')">Banished</button>
+          <button type="button" class="admin-section-tab" data-admin-section="applications" onclick="setAdminSection('applications')">Applications</button>
           <button type="button" class="admin-section-tab" data-admin-section="settings" onclick="setAdminSection('settings')">Realm Settings</button>
           <button type="button" class="admin-section-tab" data-admin-section="backup" onclick="setAdminSection('backup')">Backup</button>
         </div>
@@ -2194,6 +2117,31 @@
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section id="admin-section-applications" class="admin-panel">
+          <div class="score-admin-toolbar">
+            <button type="button" class="btn-admin-tool" onclick="loadAdminApplications();">Refresh Applications</button>
+            <span class="admin-footnote" id="admin-applications-count" style="margin:0;"></span>
+          </div>
+          <div class="score-admin-table-wrap">
+            <table class="score-admin-table">
+              <thead>
+                <tr>
+                  <th>Application ID</th>
+                  <th>Name / Alias</th>
+                  <th>Email</th>
+                  <th>Sworn Essence</th>
+                  <th>Terms Accepted</th>
+                  <th>Submitted to Lord Bubly</th>
+                  <th>Received</th>
+                </tr>
+              </thead>
+              <tbody id="admin-applications-rows">
+              </tbody>
+            </table>
+          </div>
+          <p class="admin-footnote">Applicant data is stored privately and is visible only here, to the authenticated Lord Bubly admin.</p>
         </section>
 
         <section id="admin-section-settings" class="admin-panel">
@@ -3804,127 +3752,66 @@
       });
     });
 
-    // 7. Imperial Recruit Application Engine & Persistent Archives Registry
-    function initAppRegistry() {
-      const tbody = document.getElementById('app-registry-body');
-      const countEl = document.getElementById('registry-count');
-      if (!tbody) return;
+    // 7. Recruit Application Engine
+    // Submissions are sent to the API and stored privately. Only the authenticated
+    // Lord Bubly admin console can read them back; nothing is kept in the browser.
+    (function purgeLegacyLocalApplications() {
+      try { localStorage.removeItem('order_bubly_recruit_apps'); } catch (e) {}
+    })();
 
-      let apps = [];
-      try {
-        const stored = localStorage.getItem('order_bubly_recruit_apps');
-        if (stored) apps = JSON.parse(stored);
-      } catch (e) {
-        console.error('Error reading application registry:', e);
-      }
-
-      // Seed default records if empty
-      if (!apps || apps.length === 0) {
-        apps = [
-          {
-            id: "REC-2026-1042",
-            name: "Cedric the Thirsty",
-            email: "cedric@orderofbubly.org",
-            flavor: "Lime",
-            score: "98.5%",
-            status: "PROVISIONAL ENLISTMENT APPROVED",
-            skill: "Pop Tab Mining"
-          },
-          {
-            id: "REC-2026-0914",
-            name: "Danielle of the Cold Can",
-            email: "danielle@mortalmail.com",
-            flavor: "Grapefruit",
-            score: "99.0%",
-            status: "PROVISIONAL ENLISTMENT APPROVED",
-            skill: "Academic Discipline ($nmw)"
-          }
-        ];
-        try {
-          localStorage.setItem('order_bubly_recruit_apps', JSON.stringify(apps));
-        } catch (e) {}
-      }
-
-      tbody.innerHTML = '';
-      if (countEl) countEl.textContent = `${apps.length} Recorded in Archives`;
-
-      apps.forEach(app => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong style="color:#eab308;font-family:var(--font-mono);">${app.id}</strong></td>
-          <td><strong style="color:#ffffff;">${app.name}</strong></td>
-          <td style="color:#93c5fd;font-family:var(--font-mono);">${app.email ? 'VERIFIED' : 'PENDING'}</td>
-          <td><span class="flavor-pill" style="font-size:0.7rem;">${app.flavor}</span></td>
-          <td><span class="text-gold" style="font-weight:700;">${app.score}</span></td>
-          <td><span class="metric-sub-badge sub-badge-pass" style="font-size:0.68rem;">${app.status}</span></td>
-        `;
-        tbody.appendChild(tr);
-      });
+    function setRecruitFormStatus(message) {
+      const el = document.getElementById('recruit-form-status');
+      if (!el) return;
+      el.textContent = message || '';
+      el.style.display = message ? 'block' : 'none';
     }
 
-    function processRecruitApplication() {
-      playCanCrackSound();
+    async function processRecruitApplication() {
+      const form = document.getElementById('recruit-form');
+      const submitBtn = form ? form.querySelector('.btn-submit-order') : null;
 
       const name = document.getElementById('recruit-name').value.trim();
       const email = document.getElementById('recruit-email').value.trim();
       const flavor = document.getElementById('recruit-flavor').value;
-      const status = document.getElementById('recruit-status').value;
-      const skill = document.getElementById('recruit-skill').value;
-      const capacity = document.getElementById('recruit-capacity').value;
-      const devotion = document.getElementById('recruit-devotion').value.trim();
-      const trial = document.getElementById('recruit-trial')?.value.trim() || '';
-      const strategy = document.getElementById('recruit-strategy')?.value.trim() || '';
+      const acceptedTerms = document.getElementById('recruit-accept-terms').checked;
+      const submittedToLord = document.getElementById('recruit-submit-lord').checked;
 
-      // Evaluate Essay Depth & Chivalric Alignment
-      let scoreNum = 94.0;
-      const totalChars = devotion.length + trial.length + strategy.length;
-      if (totalChars > 120) scoreNum += 3.2;
-      else if (totalChars > 50) scoreNum += 1.8;
+      setRecruitFormStatus('');
+      if (submitBtn) submitBtn.disabled = true;
 
-      const combinedText = (devotion + ' ' + trial + ' ' + strategy).toLowerCase();
-      if (combinedText.includes('bubly') || combinedText.includes('lord')) scoreNum += 1.0;
-      if (combinedText.includes('quota') || combinedText.includes('75')) scoreNum += 1.0;
-      if (combinedText.includes('tab') || combinedText.includes('vault')) scoreNum += 0.5;
-
-      scoreNum = Math.max(78.0, Math.min(99.8, scoreNum + (Math.random() * 0.4)));
-      const scoreStr = scoreNum.toFixed(1) + '%';
-      const appId = `REC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-
-      // Save to Imperial Archives (localStorage)
-      let apps = [];
+      let application;
       try {
-        const stored = localStorage.getItem('order_bubly_recruit_apps');
-        if (stored) apps = JSON.parse(stored);
-      } catch (e) {}
+        const result = await window.BublyAPI.submitApplication({
+          name,
+          email,
+          flavor,
+          acceptedTerms,
+          submittedToLord
+        });
+        application = result.application;
+      } catch (error) {
+        if (error.status === 429) {
+          setRecruitFormStatus('Too many applications from this connection. Please try again later.');
+        } else if (error.status) {
+          setRecruitFormStatus(error.message || 'Your application could not be submitted. Please try again.');
+        } else {
+          setRecruitFormStatus('The Order could not be reached. Please try again shortly.');
+        }
+        if (submitBtn) submitBtn.disabled = false;
+        return;
+      }
 
-      const newRecord = {
-        id: appId,
-        name: name,
-        email: email || null,
-        flavor: flavor,
-        score: scoreStr,
-        status: "PROVISIONAL ENLISTMENT APPROVED",
-        skill: skill,
-        devotion: devotion,
-        trial: trial,
-        strategy: strategy,
-        timestamp: new Date().toISOString()
-      };
-
-      apps.unshift(newRecord);
-      try {
-        localStorage.setItem('order_bubly_recruit_apps', JSON.stringify(apps));
-      } catch (e) {}
-
-      initAppRegistry();
+      if (submitBtn) submitBtn.disabled = false;
+      playCanCrackSound();
+      if (form) form.reset();
 
       // Render Dynamic Certificate of Provisional Enlistment
-      document.getElementById('cert-ref-badge').textContent = `IMPERIAL REGISTRY // #${appId}`;
+      document.getElementById('cert-ref-badge').textContent = `RECRUIT APPLICATION // #${application.id}`;
       document.getElementById('cert-doc-title').textContent = "BUBLY RECRUIT CERTIFICATE OF PROVISIONAL ENLISTMENT";
-      document.getElementById('cert-body-intro').textContent = "Be it recorded throughout The Order of the Bubly that by solemn examination, archival recording, and severance of the tab:";
+      document.getElementById('cert-body-intro').textContent = "Be it recorded throughout The Order of the Bubly that by solemn oath, archival recording, and severance of the tab:";
       document.getElementById('cert-recipient').textContent = `Bubbly Recruit ${name}`;
-      document.getElementById('cert-office').textContent = `Bubbly Recruit (${skill})`;
-      
+      document.getElementById('cert-office').textContent = "Bubbly Recruit";
+
       const emailWrap = document.getElementById('cert-email-wrap');
       if (emailWrap) {
         emailWrap.style.display = email ? 'flex' : 'none';
@@ -3933,7 +3820,7 @@
 
       document.getElementById('cert-flavor').textContent = flavor;
       document.getElementById('cert-paygrade').textContent = "E-1 Worthless Scum 2nd Class";
-      document.getElementById('cert-metric').textContent = `${scoreStr} Carbonated Alignment Rating`;
+      document.getElementById('cert-metric').textContent = "Provisional Enlistment Approved";
       document.getElementById('cert-date').textContent = `Enlisted this day: ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })} • Recorded in Imperial Archives • All Hail Lord Bubly.`;
       document.getElementById('cert-sig-co').textContent = "Equerry Clara";
       document.getElementById('cert-sig-co-title').textContent = "Head of Intel & Admissions";
@@ -4831,6 +4718,42 @@
       document.querySelectorAll('.admin-panel').forEach(panel => {
         panel.classList.toggle('active', panel.id === `admin-section-${section}`);
       });
+      if (section === 'applications') loadAdminApplications();
+    }
+
+    async function loadAdminApplications() {
+      const tbody = document.getElementById('admin-applications-rows');
+      const countEl = document.getElementById('admin-applications-count');
+      if (!tbody || !isLordBublyAuthenticated) return;
+
+      const message = (text) => `<tr><td colspan="7">${escapeHtml(text)}</td></tr>`;
+      tbody.innerHTML = message('Loading applications…');
+      if (countEl) countEl.textContent = '';
+
+      try {
+        const result = await window.BublyAPI.getApplications();
+        const applications = Array.isArray(result.applications) ? result.applications : [];
+        if (countEl) countEl.textContent = `${applications.length} application${applications.length === 1 ? '' : 's'}`;
+        tbody.innerHTML = applications.length
+          ? applications.map(app => `
+              <tr>
+                <td>${escapeHtml(app.id)}</td>
+                <td>${escapeHtml(app.name)}</td>
+                <td>${escapeHtml(app.email || '—')}</td>
+                <td>${escapeHtml(app.flavor)}</td>
+                <td>${app.acceptedTerms ? 'Yes' : 'No'}</td>
+                <td>${app.submittedToLord ? 'Yes' : 'No'}</td>
+                <td>${escapeHtml(new Date(app.createdAt).toLocaleString())}</td>
+              </tr>`).join('')
+          : message('No applications yet.');
+      } catch (error) {
+        if (error.status === 401) {
+          revokeSovereignAuthority();
+          tbody.innerHTML = message('Session expired. Lock and unlock the console again.');
+        } else {
+          tbody.innerHTML = message(error.message || 'Could not load applications.');
+        }
+      }
     }
 
     function updateSettingsInputs() {
@@ -5188,7 +5111,6 @@
     refreshScoreDisplays();
     renderDecrees();
     initSovereignFader();
-    initAppRegistry();
     handleKnightDeckChange();
     bootstrapSiteState();
 
