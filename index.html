@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Order of the Bubly | Official Website</title>
-  <link rel="icon" href="assets/orderseal.png" type="image/png">
+  <link rel="icon" href="assets/orderseal.png" sizes="512x512" type="image/png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1504,17 +1504,17 @@
         <div class="portal-box">
           <!-- Dual Portal Switcher -->
           <div class="portal-nav">
-            <button class="portal-tab-btn active" data-portal="recruit">Imperial Recruit Application</button>
+            <button class="portal-tab-btn active" data-portal="recruit">Bubbly Recruit Application</button>
             <button class="portal-tab-btn" data-portal="knight">Knight Station &amp; Command Deck</button>
           </div>
 
           <div class="enlist-propaganda-layout">
             <div class="enlist-forms-col">
-              <!-- Form 1: New Recruit Enlistment Application Portal -->
+              <!-- Form 1: Bubbly Recruit Enlistment Application Portal -->
               <div class="portal-pane active" id="pane-recruit">
                 <div class="portal-header">
-                  <span class="portal-kicker">ARTICLE XIV // IMPERIAL RECRUIT TRIAL</span>
-                  <h2>Imperial Admissions &amp; Enlistment Portal</h2>
+                  <span class="portal-kicker">ARTICLE XIV // BUBLY RECRUIT TRIAL</span>
+                  <h2>Bubbly Recruit Admissions Portal</h2>
                   <p>Mortals seeking entry into The Order of the Bubly must pass the High Council examination, demonstrate theological reverence for Lord Bubly, record their direct communications channel, and take the binding recruit oath.</p>
                 </div>
 
@@ -1532,9 +1532,9 @@
                       </div>
 
                       <div class="input-group">
-                        <label for="recruit-email">Imperial Contact Email Address *</label>
-                        <input type="email" id="recruit-email" placeholder="e.g. cedric@mortalmail.com" required>
-                        <span style="font-size:0.72rem;color:var(--text-muted);display:block;margin-top:3px;">Recorded in Imperial Archives for weekly quota audits &amp; notices.</span>
+                        <label for="recruit-email">Imperial Contact Email Address (Optional)</label>
+                        <input type="email" id="recruit-email" placeholder="e.g. cedric@mortalmail.com">
+                        <span style="font-size:0.72rem;color:var(--text-muted);display:block;margin-top:3px;">Optional. Provided only if you wish to be contacted by the High Council.</span>
                       </div>
 
                       <div class="input-group">
@@ -1641,7 +1641,13 @@
                     <div class="checkbox-group">
                       <label>
                         <input type="checkbox" required>
-                        <span>I acknowledge that what Lord Bubly says goes, pledge to surrender all harvested aluminum pop tabs ($ct) to the Imperial Vault, and faithfully proclaim: All Hail Lord Bubly.</span>
+                        <span>I acknowledge that what Lord Bubly says goes, pledge to surrender all harvested aluminum pop tabs ($ct) to the Imperial Vault, and faithfully proclaim: All Hail Lord Bubly — the fizzy truth.</span>
+                      </label>
+                    </div>
+                    <div class="checkbox-group">
+                      <label>
+                        <input type="checkbox" id="recruit-agree-willingness" required>
+                        <span>I am willing to drink authentic Bubly and accept Lord Bubly's hilarious decrees, including but not limited to all the fizzy nonsense.</span>
                       </label>
                     </div>
                   </div>
@@ -1667,7 +1673,7 @@
                         <tr>
                           <th>Application ID</th>
                           <th>Applicant Name</th>
-                          <th>Email on Record</th>
+                          <th>Comms Status</th>
                           <th>Sworn Essence</th>
                           <th>Aptitude Match</th>
                           <th>Council Status</th>
@@ -3847,7 +3853,7 @@
         tr.innerHTML = `
           <td><strong style="color:#eab308;font-family:var(--font-mono);">${app.id}</strong></td>
           <td><strong style="color:#ffffff;">${app.name}</strong></td>
-          <td style="color:#93c5fd;font-family:var(--font-mono);">${app.email}</td>
+          <td style="color:#93c5fd;font-family:var(--font-mono);">${app.email ? 'VERIFIED' : 'PENDING'}</td>
           <td><span class="flavor-pill" style="font-size:0.7rem;">${app.flavor}</span></td>
           <td><span class="text-gold" style="font-weight:700;">${app.score}</span></td>
           <td><span class="metric-sub-badge sub-badge-pass" style="font-size:0.68rem;">${app.status}</span></td>
@@ -3894,7 +3900,7 @@
       const newRecord = {
         id: appId,
         name: name,
-        email: email,
+        email: email || null,
         flavor: flavor,
         score: scoreStr,
         status: "PROVISIONAL ENLISTMENT APPROVED",
@@ -3914,15 +3920,15 @@
 
       // Render Dynamic Certificate of Provisional Enlistment
       document.getElementById('cert-ref-badge').textContent = `IMPERIAL REGISTRY // #${appId}`;
-      document.getElementById('cert-doc-title').textContent = "CERTIFICATE OF PROVISIONAL ENLISTMENT";
+      document.getElementById('cert-doc-title').textContent = "BUBLY RECRUIT CERTIFICATE OF PROVISIONAL ENLISTMENT";
       document.getElementById('cert-body-intro').textContent = "Be it recorded throughout The Order of the Bubly that by solemn examination, archival recording, and severance of the tab:";
       document.getElementById('cert-recipient').textContent = `Bubbly Recruit ${name}`;
       document.getElementById('cert-office').textContent = `Bubbly Recruit (${skill})`;
       
       const emailWrap = document.getElementById('cert-email-wrap');
       if (emailWrap) {
-        emailWrap.style.display = 'flex';
-        document.getElementById('cert-email').textContent = email;
+        emailWrap.style.display = email ? 'flex' : 'none';
+        document.getElementById('cert-email').textContent = email || 'No comms on record';
       }
 
       document.getElementById('cert-flavor').textContent = flavor;
