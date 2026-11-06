@@ -1505,7 +1505,7 @@
           <!-- Dual Portal Switcher -->
           <div class="portal-nav">
             <button class="portal-tab-btn active" data-portal="recruit">Bubbly Recruit Application</button>
-            <button class="portal-tab-btn" data-portal="knight">Knight Station &amp; Command Deck</button>
+            <button class="portal-tab-btn" data-portal="knight">Knight Look-up &amp; Sign In</button>
           </div>
 
           <div class="enlist-propaganda-layout">
@@ -1538,7 +1538,7 @@
                       </div>
 
                       <div class="input-group">
-                        <label for="recruit-flavor">Sworn Signature Essence *</label>
+                        <label for="recruit-flavor">Preferred Bubly Flavor *</label>
                         <select id="recruit-flavor" required>
                           <option value="Lime">Lime (Crisp Knight Standard)</option>
                           <option value="Grapefruit">Grapefruit (Sharp Chivalric Citrus)</option>
@@ -1609,63 +1609,55 @@
                 </form>
               </div>
 
-              <!-- Form 2: Knight Station Command Deck (For Existing Knights) -->
+              <!-- Form 2: Knight Look-up & Sign In (For Active Knights) -->
               <div class="portal-pane" id="pane-knight">
                 <div class="portal-header">
-                  <span class="portal-kicker kicker-blue">CHIVALRIC ROLL // ACTIVE COMMAND DECK</span>
-                  <h2>Knight Station &amp; Sovereign Terminal</h2>
-                  <p>Official interactive station for active Knights and Council Officers. Inspect your Chivalric ID Card, customize your signature essence, log daily BP duties, inspect campaign medals, swear loyalty reaffirmation oaths, and reissue your Patent of Nobility.</p>
+                  <span class="portal-kicker kicker-blue">CHIVALRIC ROLL // KNIGHT LOOK-UP &amp; SIGN IN</span>
+                  <h2>Knight Look-up &amp; Sign In</h2>
+                  <p>Official interactive terminal for active Knights and Council Officers. Enter your name to look up your live Chivalric Service Card directly from the imperial ledger, verify current point and pop tab standing, and sign in to reaffirm your sacred loyalty oaths.</p>
                 </div>
 
-                <!-- Knight Selector -->
+                <!-- Knight Name Look-up & Sign In -->
                 <div class="app-card" style="margin-bottom: 1.5rem;">
-                  <div class="knight-select-grid">
-                    <div class="input-group">
-                      <label for="knight-select">Select Active Knight Station Identity</label>
-                      <select id="knight-select" required onchange="handleKnightDeckChange();">
-                        <option value="Liv" data-office="Princess Bubbly &amp; High Treasurer" data-paygrade="E-3 Junior Commodity" data-bp="12115" data-weekly="105" data-tabs="0" data-flavor="Grapefruit">Princess Liv (High Treasurer &amp; #1 Sovereign)</option>
-                        <option value="Clara" data-office="Equerry &amp; Head of Intel" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="3015" data-weekly="118" data-tabs="0" data-flavor="Lime">Clara (Equerry, Intel &amp; Weekly Leader)</option>
-                        <option value="Christina Turner" data-office="First Knight of the Bubbly" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="3230" data-weekly="96" data-tabs="0" data-flavor="Lime">Christina Turner (First Knight)</option>
-                        <option value="Elsa Hoffman" data-office="Allymango &amp; Knight" data-paygrade="E-2 Worthless Scum 1st Class" data-bp="7735" data-weekly="90" data-tabs="0" data-flavor="Mango">Elsa Hoffman (Allymango)</option>
-                        <option value="Rosy Turner" data-office="Black Tip Reef Shark &amp; Knight" data-paygrade="E-2 Worthless Scum 1st Class" data-bp="7035" data-weekly="82" data-tabs="10" data-flavor="Cherry">Rosy Turner (Black Tip Reef Shark)</option>
-                        <option value="Finn Ergauifaj" data-office="Anime Boy &amp; Active Knight" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="1820" data-weekly="78" data-tabs="0" data-flavor="Blackberry">Finn Ergauifaj (Anime Boy)</option>
-                        <option value="Michu" data-office="Knight of the Order" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="3430" data-weekly="64" data-tabs="8" data-flavor="Strawberry">Michu (Veteran Knight)</option>
-                        <option value="Abby" data-office="Knight of the Order &amp; Vault Tab Leader" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="3050" data-weekly="46" data-tabs="16" data-flavor="Raspberry">Abby (Vault Tab Sovereign)</option>
-                        <option value="Eleni" data-office="Knight of the Order" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="3200" data-weekly="55" data-tabs="0" data-flavor="Lime">Eleni (Veteran Knight)</option>
-                        <option value="Josiah" data-office="Knight of the Order" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="1360" data-weekly="38" data-tabs="0" data-flavor="Blackberry">Josiah (Veteran Knight)</option>
-                        <option value="custom" data-office="Knight of the Order" data-paygrade="E-1 Worthless Scum 2nd Class" data-bp="2500" data-weekly="80" data-tabs="2" data-flavor="Lime">Custom Knight Station...</option>
-                      </select>
-                    </div>
-
-                    <div class="input-group">
-                      <label for="knight-flavor">Sworn Signature Essence (Select to Change Essence)</label>
-                      <select id="knight-flavor" required onchange="handleKnightDeckChange(true); playCanCrackSound();">
-                        <option value="Lime">Lime (Crisp Knight Standard)</option>
-                        <option value="Grapefruit">Grapefruit (Imperial Citrus)</option>
-                        <option value="Blackberry">Blackberry (Noble Dark Berry)</option>
-                        <option value="Cherry">Cherry (Crimson Valor)</option>
-                        <option value="Mango">Mango (Allymango Reserve)</option>
-                        <option value="Strawberry">Strawberry (Sweet Endurance)</option>
-                        <option value="Raspberry">Raspberry (Sacred Carbonation)</option>
-                        <option value="Peach">Peach (Imperial Orchard)</option>
-                        <option value="Passionfruit">Passionfruit (Zealous Spirit)</option>
-                        <option value="Watermelon">Watermelon (Summer Reserve)</option>
-                        <option value="Apple">Crisp Apple (Orchard Standard)</option>
-                      </select>
-                      <span style="font-size:0.72rem;color:var(--text-muted);display:block;margin-top:3px;">Select any essence to update your Chivalric ID Card and official station record.</span>
-                    </div>
-
-                    <div class="input-group" id="custom-knight-wrap" style="display: none; grid-column: 1 / -1;">
-                      <label for="custom-knight-name">Custom Knight Name</label>
-                      <input type="text" id="custom-knight-name" placeholder="Sir Percival" oninput="handleKnightDeckChange(false);">
+                  <div class="knight-lookup-bar">
+                    <div class="input-group" style="margin-bottom: 0;">
+                      <label for="knight-name-input" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>Knight Identity Look-up</span>
+                        <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-muted);">Type or select your name from the ledger</span>
+                      </label>
+                      <div class="knight-lookup-row" style="display: flex; gap: 0.75rem; align-items: stretch; margin-top: 0.35rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 220px; position: relative;">
+                          <input
+                            type="text"
+                            id="knight-name-input"
+                            list="knight-roster-datalist"
+                            placeholder="Type knight name (e.g., Liv, Clara, Tina, Elsa, Rosy...)"
+                            autocomplete="off"
+                            style="width: 100%; height: 100%; padding: 0.75rem 1rem; font-size: 0.95rem; background: rgba(0,0,0,0.5); border: 1px solid rgba(59,130,246,0.35); border-radius: 4px; color: #fff;"
+                            oninput="handleKnightLookupInput();"
+                            onkeydown="if(event.key === 'Enter'){ event.preventDefault(); lookupKnightByName(); }"
+                          >
+                          <datalist id="knight-roster-datalist">
+                            <!-- Populated dynamically from live API / active roster -->
+                          </datalist>
+                        </div>
+                        <button type="button" class="btn-submit-order" style="padding: 0.75rem 1.4rem; font-size: 0.9rem; margin-top: 0; white-space: nowrap;" onclick="lookupKnightByName(); playCanCrackSound();">
+                          <svg class="b-icon-xs" viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; vertical-align: middle; margin-right: 4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                          Look Up Service Card
+                        </button>
+                      </div>
+                      <div id="knight-lookup-feedback" style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <svg class="b-icon-xs" viewBox="0 0 24 24" style="width: 13px; height: 13px; fill: none; stroke: #38bdf8; stroke-width: 2;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <span id="knight-lookup-status-text">Connected to live Imperial Ledger. Type a knight's name to view live records.</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- FEATURE 1: Interactive Military Knight ID Card -->
+                <!-- Interactive Military Knight ID Card -->
                 <div class="knight-id-card" id="knight-id-card">
                   <div class="knight-id-header">
-                    <span class="knight-id-org">THE ORDER OF THE BUBLY • CHIVALRIC SERVICE CARD</span>
+                    <span class="knight-id-org">THE ORDER OF THE BUBLY &bull; CHIVALRIC SERVICE CARD</span>
                     <span class="knight-id-serial" id="deck-card-serial">ID #KNIGHT-LIV-001</span>
                   </div>
                   <div class="knight-id-body">
@@ -1676,9 +1668,9 @@
                       <h3 id="deck-card-name">Princess Liv</h3>
                       <div class="knight-id-office" id="deck-card-office">Princess Bubbly &amp; High Treasurer</div>
                       <div class="knight-id-tags">
-                        <span class="paygrade-tag-compact tag-orange" id="deck-card-paygrade">E-3 • Junior Commodity</span>
-                        <span class="flavor-pill" id="deck-card-flavor">Grapefruit</span>
+                        <span class="paygrade-tag-compact tag-orange" id="deck-card-paygrade">E-3 &bull; Junior Commodity</span>
                         <span class="metric-sub-badge sub-badge-pass" id="deck-card-status">ACTIVE DUTY KNIGHT</span>
+                        <span class="metric-sub-badge" id="deck-card-sync-badge" style="background: rgba(37,99,235,0.2); border: 1px solid rgba(59,130,246,0.4); color: #93c5fd;">&#9679; LIVE LEDGER SYNCED</span>
                       </div>
                     </div>
 
@@ -1704,211 +1696,66 @@
                   </div>
                 </div>
 
-                <!-- FEATURE 2: Daily BP Command Center & Duty Logger (The Daily BP Calculator!) -->
-                <div class="duty-calculator-box">
-                  <div class="duty-calc-header">
-                    <div class="duty-calc-title">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                      DAILY DUTY CONSOLE &amp; LIVE BP CALCULATOR
-                    </div>
-                    <span class="metric-sub-badge sub-badge-leader" style="font-size:0.72rem;">75 BP WEEKLY TARGET</span>
-                  </div>
-                  <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">Check off and tally your completed duties today. Watch your live points accrue and record them directly to Lord Bubly's registry.</p>
-
-                  <div class="duty-grid">
-                    <!-- 1. Daily Bubly Claim -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-db" onchange="calculateDailyBP();">
-                        <span>$db Daily Claim (1:14 PM EST)</span>
-                      </label>
-                      <span class="duty-item-pts">+5 BP</span>
-                    </div>
-
-                    <!-- 2. Can Consumption Counter -->
-                    <div class="duty-item-row">
-                      <span class="duty-item-label">
-                        <span>$b:) Cold Cans Consumed</span>
-                      </span>
-                      <div class="duty-counter-wrap">
-                        <button type="button" class="counter-btn" onclick="stepDutyCounter('cans', -1);">-</button>
-                        <span class="counter-val" id="duty-count-cans">0</span>
-                        <button type="button" class="counter-btn" onclick="stepDutyCounter('cans', 1);">+</button>
-                        <span class="duty-item-pts" id="duty-pts-cans">(+0 BP)</span>
-                      </div>
-                    </div>
-
-                    <!-- 3. Pop Tab Deposit Counter -->
-                    <div class="duty-item-row">
-                      <span class="duty-item-label">
-                        <span>$ct Pop Tabs Deposited</span>
-                      </span>
-                      <div class="duty-counter-wrap">
-                        <button type="button" class="counter-btn" onclick="stepDutyCounter('tabs', -1);">-</button>
-                        <span class="counter-val" id="duty-count-tabs">0</span>
-                        <button type="button" class="counter-btn" onclick="stepDutyCounter('tabs', 1);">+</button>
-                        <span class="duty-item-pts" id="duty-pts-tabs">(+0 BP)</span>
-                      </div>
-                    </div>
-
-                    <!-- 4. Can Crack Audio -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-pr" onchange="calculateDailyBP();">
-                        <span>$pr Pop Recording Verified</span>
-                      </label>
-                      <span class="duty-item-pts">+20 BP</span>
-                    </div>
-
-                    <!-- 5. No Missing Work -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-nmw" onchange="calculateDailyBP();">
-                        <span>$nmw 100% Homework Done</span>
-                      </label>
-                      <span class="duty-item-pts">+25 BP</span>
-                    </div>
-
-                    <!-- 6. Room Cleaned -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-room" onchange="calculateDailyBP();">
-                        <span>$room Military Room Sanitized</span>
-                      </label>
-                      <span class="duty-item-pts">+30 BP</span>
-                    </div>
-
-                    <!-- 7. Touch Grass -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-grass" onchange="calculateDailyBP();">
-                        <span>$grass Touched Outdoor Grass</span>
-                      </label>
-                      <span class="duty-item-pts">+5 BP</span>
-                    </div>
-
-                    <!-- 8. Hail In 3 Chats -->
-                    <div class="duty-item-row">
-                      <label class="duty-item-label">
-                        <input type="checkbox" id="duty-chk-hail" onchange="calculateDailyBP();">
-                        <span>$hail Proclaimed in 3 Chats</span>
-                      </label>
-                      <span class="duty-item-pts">+15 BP</span>
-                    </div>
-                  </div>
-
-                  <!-- Live Tally & Quota Meter -->
-                  <div class="duty-tally-bar">
-                    <div class="duty-total-display">
-                      <span style="font-size:0.85rem;color:var(--text-muted);">Today's Logged BP:</span>
-                      <span class="duty-total-num" id="duty-total-display">+0&nbsp;BP</span>
-                    </div>
-
-                    <div class="duty-quota-meter">
-                      <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:4px;">
-                        <span style="color:var(--text-muted);">Weekly Quota Progress (75 BP Target):</span>
-                        <strong id="duty-quota-status-text" class="text-blue">0 / 75 BP</strong>
-                      </div>
-                      <div class="duty-quota-track">
-                        <div class="duty-quota-fill" id="duty-quota-fill-bar" style="width: 0%;"></div>
-                      </div>
-                    </div>
-
-                    <button type="button" class="btn-submit-knight" style="padding:0.6rem 1.25rem;font-size:0.85rem;" onclick="submitDailyDutyLog();">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                      Transmit Duty Report to High Council
-                    </button>
-                  </div>
-
-                  <div id="duty-log-feedback" style="display:none;margin-top:1rem;padding:0.75rem 1rem;background:rgba(34,197,94,0.15);border:1px solid #22c55e;border-radius:4px;font-size:0.84rem;color:#4ade80;">
-                    <!-- Populated on duty submission -->
-                  </div>
-                </div>
-
-                <!-- FEATURE 3: Knight Service Medals & Ribbon Rack -->
-                <div class="ribbon-rack-container">
-                  <strong style="font-family:var(--font-herald);font-size:0.9rem;color:#ffffff;display:flex;align-items:center;gap:0.45rem;">
-                    <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#eab308;stroke-width:2"><circle cx="12" cy="8" r="6"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                    CHIVALRIC CAMPAIGN MEDALS &amp; RIBBON RACK
-                  </strong>
-                  <p style="font-size:0.8rem;color:var(--text-muted);margin:2px 0 0 0;">Official military service honors awarded under the Covenant of Bubly.</p>
-
-                  <div class="ribbon-rack-grid">
-                    <div class="ribbon-badge-item" title="Awarded for consuming authentic chilled Bubly cans ($b:)">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#38bdf8;stroke-width:2"><rect x="7" y="3" width="10" height="18" rx="4.5"></rect><circle cx="12" cy="8.5" r="2.5"></circle></svg>
-                      <div>
-                        <strong style="color:#ffffff;display:block;">Cold Can Order</strong>
-                        <span style="font-size:0.7rem;color:var(--text-muted);">Active Consumption</span>
-                      </div>
-                    </div>
-                    <div class="ribbon-badge-item" title="Awarded for harvesting aluminum pop tabs and surrendering them to Abby's Vault">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#eab308;stroke-width:2"><circle cx="12" cy="8" r="6"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                      <div>
-                        <strong style="color:#ffffff;display:block;">Vault Tab Cross</strong>
-                        <span style="font-size:0.7rem;color:var(--text-muted);">Treasury Contributor</span>
-                      </div>
-                    </div>
-                    <div class="ribbon-badge-item" title="Awarded for submitting 100% homework with zero missing work ($nmw)">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#4ade80;stroke-width:2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                      <div>
-                        <strong style="color:#ffffff;display:block;">Scholar's Citation</strong>
-                        <span style="font-size:0.7rem;color:var(--text-muted);">Zero Missing Schoolwork</span>
-                      </div>
-                    </div>
-                    <div class="ribbon-badge-item" title="Maintained positive standing without Captain Rex banishment strikes">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#f87171;stroke-width:2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                      <div>
-                        <strong style="color:#ffffff;display:block;">Warden's Clearance</strong>
-                        <span style="font-size:0.7rem;color:var(--text-muted);">Rex Court Exemption</span>
-                      </div>
-                    </div>
-                    <div class="ribbon-badge-item" title="Chanted 'All Hail Lord Bubly' across the realms">
-                      <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#fbbf24;stroke-width:2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                      <div>
-                        <strong style="color:#ffffff;display:block;">Sovereign Vanguard</strong>
-                        <span style="font-size:0.7rem;color:var(--text-muted);">Eternal Fealty Pledged</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- FEATURE 4: Chivalric Loyalty Reaffirmation Covenant -->
+                <!-- Chivalric Loyalty Reaffirmation Covenant (Expanded Terms) -->
                 <div class="app-card" style="margin-top: 1.5rem;">
                   <div class="app-card-title app-card-title-red">
                     <svg class="b-icon-xs" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     Chivalric Loyalty Reaffirmation &amp; Solemn Oaths
                   </div>
-                  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.85rem;">Active knights must reaffirm their chivalric covenants before the High Council will reissue their official Patent of Nobility.</p>
+                  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.85rem;">Active knights must reaffirm their sacred chivalric covenants before the High Council will reissue their official Patent of Nobility.</p>
 
                   <div class="checkbox-group" style="margin-bottom:0.65rem;">
                     <label>
                       <input type="checkbox" id="knight-reaffirm-fealty" required>
-                      <span><strong>Sovereign Fealty:</strong> I solemnly reaffirm that what Lord Bubly says goes, pledging unyielding allegiance to the Sovereign and the High Council.</span>
+                      <span><strong>1. Sovereign Fealty &amp; Absolute Decrees (Articles I &amp; XIV):</strong> I solemnly reaffirm that what Lord Bubly says goes, pledging unyielding allegiance to the Sovereign and the High Council. I acknowledge that Lord Bubly may add, amend, or abolish any law at any time without notice.</span>
                     </label>
                   </div>
                   <div class="checkbox-group" style="margin-bottom:0.65rem;">
                     <label>
                       <input type="checkbox" id="knight-reaffirm-quota" required>
-                      <span><strong>Quota &amp; Daily Claims:</strong> I reaffirm my sacred duty to fulfill the mandatory 75&nbsp;BP weekly quota, claim my daily $db at the 1:14 PM EST reset, and never allow my station to lapse into delinquency.</span>
+                      <span><strong>2. Weekly Quota &amp; The 1:14 PM Reset (Articles II &amp; III):</strong> I reaffirm my sacred duty to fulfill the mandatory 75&nbsp;BP weekly quota, submit my $db daily claim around the 1:14 PM EST reset, and never allow my station to lapse into delinquent scum status.</span>
+                    </label>
+                  </div>
+                  <div class="checkbox-group" style="margin-bottom:0.65rem;">
+                    <label>
+                      <input type="checkbox" id="knight-reaffirm-honor" required>
+                      <span><strong>3. Academic Honor &amp; Quarters Sanitation (Masterdoc &sect;5 &amp; &sect;8):</strong> I commit to zero missing homework assignments ($nmw), maintaining clean military quarters ($room / $cleanroom), and demonstrating peak discipline in all affairs.</span>
+                    </label>
+                  </div>
+                  <div class="checkbox-group" style="margin-bottom:0.65rem;">
+                    <label>
+                      <input type="checkbox" id="knight-reaffirm-tabs" required>
+                      <span><strong>4. Vault Pop Tab Surrender (Treasury Covenant):</strong> I pledge to harvest and faithfully surrender every single aluminum pop tab ($ct) directly to the Imperial Vault of Princess Liv and Abby, never withholding tabs for illicit trade.</span>
+                    </label>
+                  </div>
+                  <div class="checkbox-group" style="margin-bottom:0.65rem;">
+                    <label>
+                      <input type="checkbox" id="knight-reaffirm-reverence" required>
+                      <span><strong>5. Sacred Beverage Reverence:</strong> I uphold authentic, ice-cold Bubly above all flat, room-temperature, or counterfeit beverages, honoring the sacred carbonation as the supreme standard of refreshment.</span>
+                    </label>
+                  </div>
+                  <div class="checkbox-group" style="margin-bottom:0.65rem;">
+                    <label>
+                      <input type="checkbox" id="knight-reaffirm-rex" required>
+                      <span><strong>6. Disciplinary Submission to Captain Rex:</strong> Should I fail in my weekly duties or accumulate strikes, I accept without grievance the summary jurisdiction of Captain Rex and the decrees of the High Council.</span>
                     </label>
                   </div>
                   <div class="checkbox-group">
                     <label>
-                      <input type="checkbox" id="knight-reaffirm-honor" required>
-                      <span><strong>Academic &amp; Moral Discipline:</strong> I commit to zero missing homework ($nmw), maintaining clean quarters ($room), and faithfully surrendering aluminum pop tabs ($ct) to the Imperial Vault.</span>
+                      <input type="checkbox" id="knight-reaffirm-ordinance" required>
+                      <span><strong>7. Chivalric Comradery &amp; Tactical Readiness:</strong> I swear solidarity with my fellow knights, promise to proclaim 'All Hail Lord Bubly' across the realms, and remain armed with cold cans&mdash;ready to shake and throw when duty calls.</span>
                     </label>
                   </div>
                 </div>
 
-                <!-- Action: Issue Patent of Nobility -->
+                <!-- Action: Sign In & Issue Patent of Nobility -->
                 <div style="text-align: center; margin-top: 1.5rem;">
                   <button type="submit" class="btn-submit-knight" style="padding: 0.9rem 2rem; font-size: 1rem;" onclick="processKnightReaffirmation();">
                     <svg class="b-icon b-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Issue Official Patent of Nobility &amp; Reaffirmation
+                    Sign In &amp; Issue Official Patent of Nobility
                   </button>
                 </div>
-              </div>
-            </div>
+              </div>            </div>
 
             <!-- Tactical Ordinance Propaganda Poster & Guidelines -->
             <div class="enlist-poster-col">
@@ -1963,7 +1810,7 @@
                   <span class="attr-val" id="cert-email">recruit@orderofbubly.org</span>
                 </div>
                 <div class="cert-attr-item">
-                  <span class="attr-label">Sworn Essence:</span>
+                  <span class="attr-label">Preferred Flavor:</span>
                   <span class="flavor-pill" id="cert-flavor">Lime</span>
                 </div>
                 <div class="cert-attr-item">
@@ -3679,6 +3526,8 @@
       renderScoreboard();
       renderBanishedTable();
       updateDerivedStats();
+      populateKnightDatalist();
+      syncCurrentKnightCard();
     }
 
     // Sovereign Precepts Fader (Stationary banner at the top, rotating precepts smoothly while "ALL HAIL LORD BUBLY" remains constant)
@@ -3811,6 +3660,8 @@
       document.getElementById('cert-body-intro').textContent = "Be it recorded throughout The Order of the Bubly that by solemn oath, archival recording, and severance of the tab:";
       document.getElementById('cert-recipient').textContent = `Bubbly Recruit ${name}`;
       document.getElementById('cert-office').textContent = "Bubbly Recruit";
+      const flavorWrap = document.getElementById('cert-flavor')?.parentElement;
+      if (flavorWrap) flavorWrap.style.display = 'flex';
 
       const emailWrap = document.getElementById('cert-email-wrap');
       if (emailWrap) {
@@ -3831,63 +3682,165 @@
       certEl.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 8. Knight Station Command Deck & Live Terminal
-    function handleKnightDeckChange(flavorOnly = false) {
-      const select = document.getElementById('knight-select');
-      const customWrap = document.getElementById('custom-knight-wrap');
-      const flavorSelect = document.getElementById('knight-flavor');
-      let name = select.value;
-      const opt = select.options[select.selectedIndex];
+    // 8. Knight Look-up, Live Service Card & Sovereign Terminal
+    let currentActiveKnightName = '';
 
-      let office = opt.getAttribute('data-office') || "Knight of the Order";
-      let paygrade = opt.getAttribute('data-paygrade') || "E-1 Worthless Scum 2nd Class";
-      let bp = opt.getAttribute('data-bp') || "2,500";
-      let weekly = opt.getAttribute('data-weekly') || "80";
-      let tabs = opt.getAttribute('data-tabs') || "0";
-      let defaultFlavor = opt.getAttribute('data-flavor') || "Lime";
+    function getKnightRecordByName(query) {
+      if (!query) return null;
+      const clean = String(query).trim().toLowerCase();
+      if (!clean) return null;
 
-      if (name === 'custom') {
-        customWrap.style.display = 'block';
-        const customName = document.getElementById('custom-knight-name').value.trim();
-        name = customName || "Sir Percival";
+      // 1. Exact match in active roster
+      let match = sheetActiveMembers.find(m => m.name.toLowerCase() === clean);
+      if (match) return match;
+
+      // 2. Exact match in DEFAULT_SHEET_MEMBERS
+      match = DEFAULT_SHEET_MEMBERS.find(m => m.name.toLowerCase() === clean);
+      if (match) return match;
+
+      // 3. Partial match (starts with query or query starts with name)
+      match = sheetActiveMembers.find(m => m.name.toLowerCase().startsWith(clean) || clean.startsWith(m.name.toLowerCase()));
+      if (match) return match;
+
+      // 4. Substring match in active roster
+      match = sheetActiveMembers.find(m => m.name.toLowerCase().includes(clean) || clean.includes(m.name.toLowerCase()));
+      if (match) return match;
+
+      // 5. Check banished / other members
+      if (Array.isArray(banishedMembers)) {
+        match = banishedMembers.find(m => m.name.toLowerCase() === clean || m.name.toLowerCase().includes(clean));
+        if (match) return match;
+      }
+
+      return null;
+    }
+
+    function populateKnightDatalist() {
+      const datalist = document.getElementById('knight-roster-datalist');
+      if (!datalist) return;
+      const members = sheetActiveMembers && sheetActiveMembers.length > 0 ? sheetActiveMembers : DEFAULT_SHEET_MEMBERS;
+      datalist.innerHTML = members.map(m => `<option value="${escapeHtml(m.name)}">${escapeHtml(m.name)} \u2014 ${escapeHtml(m.role)}</option>`).join('');
+    }
+
+    function updateKnightServiceCard(member, fallbackName = '') {
+      const name = member ? member.name : (fallbackName || 'Princess Liv');
+      currentActiveKnightName = name;
+      try {
+        localStorage.setItem('order_bubly_active_knight', name);
+      } catch (e) {}
+
+      const safeSerial = name.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 12) || 'BUBLY';
+      const serialEl = document.getElementById('deck-card-serial');
+      const nameEl = document.getElementById('deck-card-name');
+      const officeEl = document.getElementById('deck-card-office');
+      const paygradeEl = document.getElementById('deck-card-paygrade');
+      const statusEl = document.getElementById('deck-card-status');
+      const syncEl = document.getElementById('deck-card-sync-badge');
+      const bpEl = document.getElementById('deck-card-bp');
+      const weeklyEl = document.getElementById('deck-card-weekly');
+      const tabsEl = document.getElementById('deck-card-tabs');
+      const feedbackEl = document.getElementById('knight-lookup-feedback');
+
+      if (serialEl) serialEl.textContent = `ID #KNIGHT-${safeSerial}-001`;
+      if (nameEl) nameEl.textContent = name;
+
+      if (member) {
+        const paygrade = calculatePaygrade(member.bp);
+        if (officeEl) officeEl.textContent = member.role || 'Knight of the Order';
+        if (paygradeEl) {
+          paygradeEl.className = `paygrade-tag-compact tag-${paygrade.color || 'orange'}`;
+          paygradeEl.textContent = `${paygrade.code} \u2022 ${paygrade.title}`;
+        }
+        if (statusEl) {
+          const isActive = String(member.status || '').toLowerCase() === 'active';
+          statusEl.className = `metric-sub-badge ${isActive ? 'sub-badge-pass' : 'sub-badge-fail'}`;
+          statusEl.textContent = isActive ? 'ACTIVE DUTY KNIGHT' : (member.status || 'KNIGHT').toUpperCase();
+        }
+        if (syncEl) {
+          syncEl.style.display = 'inline-block';
+          syncEl.textContent = '\u25CF LIVE LEDGER SYNCED';
+          syncEl.style.color = '#93c5fd';
+          syncEl.style.borderColor = 'rgba(59,130,246,0.4)';
+        }
+        if (bpEl) bpEl.innerHTML = `${Number(member.bp || 0).toLocaleString()}&nbsp;BP`;
+        if (weeklyEl) {
+          const quota = getWeeklyQuota();
+          const isQuota = (member.weekly || 0) >= quota;
+          weeklyEl.className = `knight-id-stat-num ${isQuota ? 'text-gold' : 'text-blue'}`;
+          weeklyEl.innerHTML = `${member.weekly || 0}&nbsp;BP`;
+        }
+        if (tabsEl) tabsEl.innerHTML = `${member.tabs || 0}&nbsp;Tabs`;
+
+        if (feedbackEl) {
+          feedbackEl.innerHTML = `
+            <svg class="b-icon-xs" viewBox="0 0 24 24" style="width: 13px; height: 13px; fill: none; stroke: #22c55e; stroke-width: 2.5;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="color: #4ade80;">Verified in Imperial Ledger: <strong>${escapeHtml(member.name)}</strong> (${escapeHtml(member.role)})</span>
+          `;
+        }
       } else {
-        customWrap.style.display = 'none';
+        // Fallback for custom / visiting candidate
+        if (officeEl) officeEl.textContent = 'Visiting Knight / Candidate';
+        if (paygradeEl) {
+          paygradeEl.className = 'paygrade-tag-compact tag-gray';
+          paygradeEl.textContent = 'E-1 \u2022 Worthless Scum 2nd Class';
+        }
+        if (statusEl) {
+          statusEl.className = 'metric-sub-badge sub-badge-failing';
+          statusEl.textContent = 'PENDING RATIFICATION';
+        }
+        if (syncEl) {
+          syncEl.style.display = 'inline-block';
+          syncEl.textContent = 'UNRECORDED CANDIDATE';
+          syncEl.style.color = '#facc15';
+          syncEl.style.borderColor = 'rgba(250,204,21,0.4)';
+        }
+        if (bpEl) bpEl.innerHTML = '0&nbsp;BP';
+        if (weeklyEl) weeklyEl.innerHTML = '0&nbsp;BP';
+        if (tabsEl) tabsEl.innerHTML = '0&nbsp;Tabs';
+
+        if (feedbackEl) {
+          feedbackEl.innerHTML = `
+            <svg class="b-icon-xs" viewBox="0 0 24 24" style="width: 13px; height: 13px; fill: none; stroke: #facc15; stroke-width: 2;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span style="color: #facc15;">Unindexed station: You may still swear the reaffirmation covenant to request commission.</span>
+          `;
+        }
       }
+    }
 
-      const safeKey = name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+    function lookupKnightByName(nameToLookup = null) {
+      const input = document.getElementById('knight-name-input');
+      const query = nameToLookup || (input ? input.value.trim() : '') || currentActiveKnightName || 'Princess Liv';
+      if (input && nameToLookup) input.value = nameToLookup;
 
-      // If user changed the flavor directly, store it!
-      if (flavorOnly) {
-        try {
-          localStorage.setItem('order_bubly_flavor_' + safeKey, flavorSelect.value);
-        } catch (e) {}
-      } else {
-        // When switching knights, load saved flavor or default
-        let savedFlavor = defaultFlavor;
-        try {
-          const stored = localStorage.getItem('order_bubly_flavor_' + safeKey);
-          if (stored) savedFlavor = stored;
-        } catch (e) {}
-        flavorSelect.value = savedFlavor;
+      const matched = getKnightRecordByName(query);
+      updateKnightServiceCard(matched, query);
+    }
+
+    function handleKnightLookupInput() {
+      const input = document.getElementById('knight-name-input');
+      if (!input) return;
+      const query = input.value.trim();
+      if (!query) return;
+
+      const matched = getKnightRecordByName(query);
+      if (matched && matched.name.toLowerCase() === query.toLowerCase()) {
+        updateKnightServiceCard(matched, query);
       }
+    }
 
-      const activeFlavor = flavorSelect.value || defaultFlavor;
+    function syncCurrentKnightCard() {
+      let savedName = '';
+      try {
+        savedName = localStorage.getItem('order_bubly_active_knight') || '';
+      } catch (e) {}
 
-      // Update Knight ID Card
-      const safeName = name.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
-      document.getElementById('deck-card-serial').textContent = `ID #KNIGHT-${safeName}-001`;
-      document.getElementById('deck-card-name').textContent = name;
-      document.getElementById('deck-card-office').textContent = office;
-      document.getElementById('deck-card-paygrade').textContent = paygrade;
-      document.getElementById('deck-card-flavor').textContent = activeFlavor;
-      document.getElementById('deck-card-bp').innerHTML = `${Number(bp).toLocaleString()}&nbsp;BP`;
-      document.getElementById('deck-card-weekly').innerHTML = `${weekly}&nbsp;BP`;
-      document.getElementById('deck-card-tabs').innerHTML = `${tabs}&nbsp;Tabs`;
-
-      // Reset Daily Duty calculator counters when switching knight identity
-      if (!flavorOnly) {
-        resetDailyDutyConsole();
+      const input = document.getElementById('knight-name-input');
+      const targetName = (input && input.value.trim()) || savedName || currentActiveKnightName || 'Princess Liv';
+      if (input && !input.value.trim() && targetName) {
+        input.value = targetName;
       }
+      const matched = getKnightRecordByName(targetName);
+      updateKnightServiceCard(matched, targetName);
     }
 
     function toggleKnightHologram() {
@@ -3898,147 +3851,61 @@
       }
     }
 
-    // 9. Daily BP Duty Console & Live Calculator
-    let currentDutyCans = 0;
-    let currentDutyTabs = 0;
-
-    function resetDailyDutyConsole() {
-      currentDutyCans = 0;
-      currentDutyTabs = 0;
-      const cansEl = document.getElementById('duty-count-cans');
-      const tabsEl = document.getElementById('duty-count-tabs');
-      if (cansEl) cansEl.textContent = '0';
-      if (tabsEl) tabsEl.textContent = '0';
-      const ptsCansEl = document.getElementById('duty-pts-cans');
-      const ptsTabsEl = document.getElementById('duty-pts-tabs');
-      if (ptsCansEl) ptsCansEl.textContent = '(+0 BP)';
-      if (ptsTabsEl) ptsTabsEl.textContent = '(+0 BP)';
-      
-      ['db', 'pr', 'nmw', 'room', 'grass', 'hail'].forEach(id => {
-        const el = document.getElementById(`duty-chk-${id}`);
-        if (el) el.checked = false;
-      });
-
-      calculateDailyBP();
-      const fb = document.getElementById('duty-log-feedback');
-      if (fb) fb.style.display = 'none';
-    }
-
-    function stepDutyCounter(type, delta) {
-      if (type === 'cans') {
-        currentDutyCans = Math.max(0, currentDutyCans + delta);
-        document.getElementById('duty-count-cans').textContent = currentDutyCans;
-        document.getElementById('duty-pts-cans').textContent = `(+${currentDutyCans * 50} BP)`;
-      } else if (type === 'tabs') {
-        currentDutyTabs = Math.max(0, currentDutyTabs + delta);
-        document.getElementById('duty-count-tabs').textContent = currentDutyTabs;
-        document.getElementById('duty-pts-tabs').textContent = `(+${currentDutyTabs * 25} BP)`;
-      }
-      calculateDailyBP();
-    }
-
-    function calculateDailyBP() {
-      let total = 0;
-      if (document.getElementById('duty-chk-db')?.checked) total += 5;
-      total += currentDutyCans * 50;
-      total += currentDutyTabs * 25;
-      if (document.getElementById('duty-chk-pr')?.checked) total += 20;
-      if (document.getElementById('duty-chk-nmw')?.checked) total += 25;
-      if (document.getElementById('duty-chk-room')?.checked) total += 30;
-      if (document.getElementById('duty-chk-grass')?.checked) total += 5;
-      if (document.getElementById('duty-chk-hail')?.checked) total += 15;
-
-      const totalEl = document.getElementById('duty-total-display');
-      if (totalEl) totalEl.innerHTML = `+${total}&nbsp;BP`;
-
-      const quotaStatusText = document.getElementById('duty-quota-status-text');
-      const quotaBar = document.getElementById('duty-quota-fill-bar');
-      const quotaTarget = 75;
-      const pct = Math.min(100, Math.round((total / quotaTarget) * 100));
-
-      if (quotaBar) {
-        quotaBar.style.width = `${pct}%`;
-        quotaBar.style.backgroundColor = total >= quotaTarget ? '#22c55e' : '#3b82f6';
-      }
-
-      if (quotaStatusText) {
-        if (total >= quotaTarget) {
-          quotaStatusText.className = 'text-gold';
-          quotaStatusText.textContent = `✓ ${total} / 75 BP (QUOTA MET!)`;
-        } else {
-          quotaStatusText.className = 'text-blue';
-          quotaStatusText.textContent = `${total} / 75 BP (${quotaTarget - total} BP to quota)`;
-        }
-      }
-
-      return total;
-    }
-
-    function submitDailyDutyLog() {
-      playCanCrackSound();
-      const total = calculateDailyBP();
-      const select = document.getElementById('knight-select');
-      let name = select.value === 'custom' ? (document.getElementById('custom-knight-name').value.trim() || 'Sir Percival') : select.value;
-
-      const fb = document.getElementById('duty-log-feedback');
-      if (fb) {
-        fb.style.display = 'block';
-        fb.innerHTML = `
-          <strong>★ DUTY LOG RATIFIED BY HIGH COUNCIL:</strong><br>
-          +<strong>${total}&nbsp;BP</strong> officially recorded and credited to <strong>${name}</strong> for today (${new Date().toLocaleDateString()}).
-          ${total >= 75 ? '<br><span style="color:#facc15;font-weight:700;">★ WEEKLY 75 BP QUOTA ACHIEVED TODAY! ALL HAIL LORD BUBLY.</span>' : '<br>Maintain this discipline to reach the mandatory 75 BP quota by reset.'}
-        `;
-      }
-    }
-
-    // 10. Knight Station Reaffirmation Processor
+    // 9. Knight Station Reaffirmation Processor
     function processKnightReaffirmation() {
-      const chkFealty = document.getElementById('knight-reaffirm-fealty');
-      const chkQuota = document.getElementById('knight-reaffirm-quota');
-      const chkHonor = document.getElementById('knight-reaffirm-honor');
+      const vows = [
+        { id: 'knight-reaffirm-fealty', name: 'Sovereign Fealty & Absolute Decrees' },
+        { id: 'knight-reaffirm-quota', name: 'Weekly Quota & The 1:14 PM Reset' },
+        { id: 'knight-reaffirm-honor', name: 'Academic Honor & Quarters Sanitation' },
+        { id: 'knight-reaffirm-tabs', name: 'Vault Pop Tab Surrender' },
+        { id: 'knight-reaffirm-reverence', name: 'Sacred Beverage Reverence' },
+        { id: 'knight-reaffirm-rex', name: 'Disciplinary Submission to Captain Rex' },
+        { id: 'knight-reaffirm-ordinance', name: 'Chivalric Comradery & Tactical Readiness' }
+      ];
 
-      if (!chkFealty?.checked || !chkQuota?.checked || !chkHonor?.checked) {
-        alert("Chivalric Oath Incomplete: You must swear and check all three Loyalty Reaffirmation vows before the High Council will reissue your Patent of Nobility!");
+      const missing = vows.filter(v => !document.getElementById(v.id)?.checked);
+      if (missing.length > 0) {
+        alert("Chivalric Oath Incomplete: You must swear and check all 7 Loyalty Reaffirmation vows before the High Council will reissue your Patent of Nobility!");
         return;
       }
 
       playCanCrackSound();
 
-      const select = document.getElementById('knight-select');
-      let name = select.value;
-      const opt = select.options[select.selectedIndex];
-      let office = opt.getAttribute('data-office') || "Knight of the Order";
-      let paygrade = opt.getAttribute('data-paygrade') || "E-1 Worthless Scum 2nd Class";
+      const input = document.getElementById('knight-name-input');
+      const targetName = (input && input.value.trim()) || currentActiveKnightName || 'Princess Liv';
+      const knight = getKnightRecordByName(targetName) || {
+        name: targetName,
+        role: "Knight of the Order",
+        bp: 0,
+        weekly: 0,
+        tabs: 0
+      };
 
-      if (name === 'custom') {
-        name = document.getElementById('custom-knight-name').value.trim() || "Knight of the Order";
-      }
+      const paygrade = calculatePaygrade(knight.bp || 0);
 
-      const flavor = document.getElementById('knight-flavor').value;
-      const todayBP = calculateDailyBP();
-
-      document.getElementById('cert-ref-badge').textContent = "PATENT OF NOBILITY // KNIGHT STATION CONFIRMATION";
+      document.getElementById('cert-ref-badge').textContent = "PATENT OF NOBILITY // KNIGHT SERVICE REAFFIRMATION";
       document.getElementById('cert-doc-title').textContent = "PATENT OF NOBILITY & REAFFIRMATION";
       document.getElementById('cert-body-intro').textContent = "Be it recorded throughout The Order of the Bubly that by solemn oath, chivalric reaffirmation, and severing of the tab:";
-      document.getElementById('cert-recipient').textContent = `${office} ${name}`;
-      document.getElementById('cert-office').textContent = `${office} of The Order of the Bubly`;
+      document.getElementById('cert-recipient').textContent = `${knight.role || 'Knight'} ${knight.name}`;
+      document.getElementById('cert-office').textContent = `${knight.role || 'Knight'} of The Order of the Bubly`;
       
       const emailWrap = document.getElementById('cert-email-wrap');
       if (emailWrap) emailWrap.style.display = 'none';
 
-      document.getElementById('cert-flavor').textContent = flavor;
-      document.getElementById('cert-paygrade').textContent = paygrade;
-      document.getElementById('cert-metric').textContent = `+${todayBP} BP Logged Today • Station Reaffirmed`;
-      document.getElementById('cert-date').textContent = `Reaffirmed this day: ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })} under decree of Lord Bubly • All Hail Lord Bubly.`;
+      const flavorWrap = document.getElementById('cert-flavor')?.parentElement;
+      if (flavorWrap) flavorWrap.style.display = 'none';
+
+      document.getElementById('cert-paygrade').textContent = `${paygrade.code} ${paygrade.title}`;
+      document.getElementById('cert-metric').textContent = `${Number(knight.bp || 0).toLocaleString()} Career BP \u2022 ${knight.weekly || 0} Weekly BP (${knight.tabs || 0} Tabs in Vault)`;
+      document.getElementById('cert-date').textContent = `Reaffirmed this day: ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })} under decree of Lord Bubly \u2022 All Hail Lord Bubly.`;
       document.getElementById('cert-sig-co').textContent = "Princess Liv";
       document.getElementById('cert-sig-co-title').textContent = "High Treasurer of the Order";
-      document.getElementById('cert-stamp-badge').textContent = "PATENT RATIFIED • ALL HAIL LORD BUBLY";
+      document.getElementById('cert-stamp-badge').textContent = "PATENT RATIFIED \u2022 ALL HAIL LORD BUBLY";
 
       const certEl = document.getElementById('certificate');
       certEl.style.display = 'block';
       certEl.scrollIntoView({ behavior: 'smooth' });
     }
-
     // 10. Covenant Acknowledgment Button
     const ackBtn = document.getElementById('btn-ack-covenant');
     const stampBox = document.getElementById('covenant-stamp');
@@ -5111,7 +4978,7 @@
     refreshScoreDisplays();
     renderDecrees();
     initSovereignFader();
-    handleKnightDeckChange();
+    syncCurrentKnightCard();
     bootstrapSiteState();
 
     const initialHash = window.location.hash.replace('#', '');
